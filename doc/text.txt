@@ -1,0 +1,112 @@
+*text.txt*                                            A NVPM Text Editing Helper
+CREATOR                                                         Itamar Soares  {
+
+                                                                   iasj@pm.me
+                                                      https://gitlab.com/iasj
+=======================================}========================================
+NVPM Group on Gitlab                                              *nvpm-group* {
+-> https://gitlab.com/nvpm
+
+NVPM plugins
+-> https://gitlab.com/nvpm/nvpm
+-> https://gitlab.com/nvpm/text
+-> https://gitlab.com/nvpm/zoom
+
+Discussions and news on Telegram (in Portuguese and English)
+-> https://t.me/nvpmuser (group)
+-> https://t.me/nvpmnews (channel)
+=======================================}========================================
+CONTENTS                                                            *NVPMText* {
+ 0. Quick Start                                           NVPMText-quick-start
+ 1. Installation                                         NVPMText-installation
+ 2. Commands                                                 NVPMText-commands
+=======================================}========================================
+ 0. Quick Start                                         *NVPMText-quick-start* {
+
+--- FROM HERE
+
+nmap mja  vipo<esc>
+         \vip:s/\s\+/ /g<cr>
+         \vip:NVPMTextJust 35<cr>
+         \0vip<c-v><esc>$<right>
+         \vip>
+         \:nohlsearch<cr>
+
+nmap mjj  vipo<esc>
+         \vip:s/\s\+/ /g<cr>
+         \vip:NVPMTextJust 76<cr>
+         \0vip<c-v><esc>$<right>
+         \:nohlsearch<cr>
+
+nmap mj5 vip:NVPMTextJust 50<cr>
+nmap mj6 vip:NVPMTextJust 60<cr>
+nmap mj7 vip:NVPMTextJust 70<cr>
+
+--- UNTIL HERE
+
+=======================================}========================================
+ 1. Installation                                       *NVPMText-installation* {
+
+using |vim-plug|
+>
+  Plug 'https://gitlab.com/nvpm/text , {'branch' : 'main'}
+
+using |runtimepath|
+>
+    cd $HOME
+    git clone https://gitlab.com/nvpm/text
+    echo "set runtimepath+=~/text" >> .config/nvim/init.vim
+
+copying files with |bash|
+>
+    cd $HOME
+    git clone https://gitlab.com/nvpm/text
+    cp -r text/{plugin,syntax,version} .config/nvim
+    mkdir -p .config/nvim/doc
+    cp  text/doc/text.txt .config/nvim/doc
+    touch .config/nvim/doc/tags
+    cat text/doc/tags >> .config/nvim/doc/tags
+
+=======================================}========================================
+ 2. Commands                                               *NVPMText-commands* {
+
+There are only those in the following list:
+
+|NVPMTextJust|
+
+------------------------------------------------------------------------------
+NVPMTextJust                                                      *NVPMTextJust*
+------------
+
+`syntax` → :NVPMTextJust
+`args`   → [interger] the number of columns to be justified.
+`action` → Justifies the selected paragraph text
+description~
+
+  This command justifies a visual selection into <args> columns. The user must
+  visual  select a paragraph and call NVPMTextJust with the number of columns.
+  Example:
+
+  Consider the following paragraph
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+  Since  this  whole  paragraph  is  in  just  one line, we can select it with
+  `Shift-v`.  After  that,  by  calling the command  `:NVPMTextJust  40`,  for
+  example, the final result should be this:
+
+  Lorem  ipsum dolor sit amet, consectetur
+  adipiscing  elit,  sed do eiusmod tempor
+  incididunt  ut labore  et  dolore  magna
+  aliqua. Ut enim  ad  minim  veniam, quis
+  nostrud  exercitation  ullamco   laboris
+  nisi ut aliquip ex ea commodo consequat.
+  Duis  aute  irure dolor in reprehenderit
+  in voluptate velit esse cillum dolore eu
+  fugiat nulla  pariatur.  Excepteur  sint
+  occaecat cupidatat non proident, sunt in
+  culpa  qui  officia deserunt mollit anim
+  id              est             laborum.
+
+=======================================}========================================
+vim: ft=help tw=78 isk+=<,>,\:,-,' fdm=marker fmr={,} fdl=0 fen
