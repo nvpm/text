@@ -1,7 +1,7 @@
+if exists('nvpmtextplugloaded')|finish|endif
 
-let plug = text#text()
+let nvpmtextplugloaded = 1
 
-command! 
-\-nargs=? 
-\-range 
-\NVPMTextJust <line1>,<line2>call plug.just(<args>)
+let text = text#text()
+
+command! -nargs=? -range TextJust <line1>,<line2>call text.just(<args>)

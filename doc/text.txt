@@ -8,8 +8,8 @@ NVPM Group on Gitlab                                              *nvpm-group* {
 -> https://gitlab.com/nvpm
 
 NVPM plugins
+-> https://gitlab.com/nvpm/text [*]
 -> https://gitlab.com/nvpm/nvpm
--> https://gitlab.com/nvpm/text
 -> https://gitlab.com/nvpm/zoom
 
 Discussions and news on Telegram (in Portuguese and English)
