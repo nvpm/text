@@ -1,6 +1,15 @@
-" s:just() {
+" auto/text.vim
+" once {
 
-fu! s:just(...) range
+if !NVPMTEST&&exists('TEXTAUTOLOAD')|finish|else|let TEXTAUTOLOAD=1|endif
+
+" end-once}
+" priv {
+
+" }
+" publ {
+
+fu! s:just(...) range "{
   if a:0|let tw=&tw|let &tw=a:1|endif
   exe a:firstline
   exe 'norm! V'.a:lastline.'Ggq'
@@ -24,11 +33,12 @@ fu! s:just(...) range
   if a:0
     let &tw=tw
   endif
-endf
+endf " }
 
 " }
-" Class    {
-fu! text#text()
+" objc {
+
+fu! text#text() "{
 
   let self = {}
 
@@ -37,3 +47,6 @@ fu! text#text()
   return self
 
 endf "}
+
+" }
+
