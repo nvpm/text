@@ -1,7 +1,7 @@
 " auto/text.vim
 " once {
 
-if !NVPMTEST&&exists('TEXTAUTOLOAD')|finish|else|let TEXTAUTOLOAD=1|endif
+if exists('TEXTAUTOLOAD')|finish|else|let TEXTAUTOLOAD=1|endif
 
 " end-once}
 " priv {

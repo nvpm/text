@@ -1,7 +1,7 @@
 " plug/text.vim
 " once {
 
-if !NVPMTEST&&exists('TEXTPLUGLOAD')|finish|else|let TEXTPLUGLOAD=1|endif
+if exists('TEXTPLUGLOAD')|finish|else|let TEXTPLUGLOAD=1|endif
 
 " end-once}
 " init {
